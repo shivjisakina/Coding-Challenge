@@ -73,14 +73,4 @@ router.post('/create', function(req,res) {
 	});
 });
 
-router.post('/delete', function (req, res) {
-
-    models.User.destroy({
-        where: {person_id: 1}
-    }).then(function () {
-        console.log("deleted " + req.body.task)
-        res.redirect('/');
-    })
-});
-
 module.exports = router;

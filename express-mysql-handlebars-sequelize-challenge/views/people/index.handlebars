@@ -22,14 +22,12 @@
   {{#each people}}
     <li>
       {{this.name}}
+        <form action="/delete" method="POST" style="display: inline">
+            <input type="submit" value="delete">
+        </form>
       <ul>
         {{#if ../logged_in}}
           <li>
-            <form action="/people/{{this.id}}/tasks/create" method="POST" style="display: inline">
-              <input type="text" name="task" placeholder="add task here">
-                <input type="submit" value"assign task">
-            </form>
-
           </li>
         {{/if}}
 

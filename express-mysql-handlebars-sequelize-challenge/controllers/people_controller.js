@@ -16,11 +16,20 @@ router.get('/', function(req, res) {
 });
 
 router.post('/create', function(req, res) {
-  models.Person.create({
-    name: req.body.name
-  }).then(function() {
-    res.redirect('/');
-  });
+    models.Person.create({
+        name: req.body.name
+    }).then(function() {
+        res.redirect('/');
+    });
+});
+
+router.post('/delete', function(req, res) {
+    models.Person.destroy({
+        where: {id: 1}
+    }).then(function () {
+        console.log("deleted " + req.body.name)
+        res.redirect('/');
+    })
 });
 
 module.exports = router;
